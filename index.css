@@ -306,6 +306,339 @@ body {
     text-align: center;
 }
 
+/* =============================
+   NFC SECTION — FULL UPDATED CSS
+   ============================= */
+
+#nfcFeatures {
+  position: relative;
+  height: 100vh;                   
+  overflow: hidden;                
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+/* Main wrapper inside your section */
+#nfcFeatures .tapit-wrapper {
+  position: relative;
+  z-index: 10; /* content stays ABOVE the falling cards */
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Heading */
+#nfcFeatures .tapit-heading {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Main card container */
+#nfcFeatures .tapit-card-container {
+  width: 340px;
+  height: 220px;
+  margin: 0 auto;
+  position: relative;
+  filter: drop-shadow(0 20px 45px rgba(0,0,0,0.5));
+}
+
+#nfcFeatures .tapit-main-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#nfcFeatures .tapit-red-glow {
+  position: absolute;
+  width: 420px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,50,50,0.25), rgba(255,50,50,0.05), transparent);
+  border-radius: 40px;
+  filter: blur(40px);
+  z-index: -1;
+  transform: translateY(12px);
+}
+
+/* Info cards grid */
+#nfcFeatures .tapit-lines-container {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+#nfcFeatures .tapit-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: -8px 8px 12px #000;
+  color: #000000;
+}
+
+#nfcFeatures .tapit-item h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#nfcFeatures .tapit-item p {
+  margin-top: 6px;
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.3;
+  font-size: 13px;
+}
+
+/* =============================
+   FALLING CARD RAIN
+   ============================= */
+
+#nfcFeatures .nfc-rain-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* The floating cards */
+#nfcFeatures .falling-card {
+  position: absolute;
+  top: -120px;
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  opacity: 0.9;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+  animation: nfcFall linear forwards;
+}
+
+#nfcFeatures .falling-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Falling animation */
+@keyframes nfcFall {
+  0% {
+    transform: translateY(-140px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Hover polish */
+#nfcFeatures:hover .falling-card {
+  filter: brightness(1.07);
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+
+@media (max-width: 840px) {
+  #nfcFeatures .tapit-card-container {
+    width: 280px;
+    height: 180px;
+  }
+
+  #nfcFeatures .tapit-lines-container {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  #nfcFeatures {
+    padding-top: 80px;
+  }
+
+  #nfcFeatures .tapit-heading {
+    font-size: 22px;
+  }
+
+  #nfcFeatures .tapit-lines-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/**/
+
+/* ===========================
+   SMART MEMBERSHIP SPLIT LAYOUT
+   =========================== */
+
+#membershipCards.mc-split {
+  height: 100vh;
+  background: #0e0f12;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* LEFT SIDE */
+.mc-left {
+  width: 50%;
+  padding: 60px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mc-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.mc-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* Feature actions */
+.mc-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mc-action {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.mc-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(0, 200, 255, 0.15);
+  border: 1px solid rgba(0,150,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.mc-text h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mc-text p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+
+/* RIGHT SIDE */
+.mc-right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Diagonal background */
+.mc-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #12141a, #0f2431);
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Big floating card */
+.mc-card-float {
+  position: relative;
+  width: 420px;
+  height: 260px;
+  z-index: 3;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.mc-big-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.mc-card-glow {
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(0,200,255,0.4), transparent 60%);
+  filter: blur(80px);
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Floating animation */
+@keyframes floatCard {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #membershipCards.mc-split {
+    flex-direction: column;
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .mc-left {
+    width: 100%;
+    padding: 0;
+  }
+  .mc-right {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+
+
 /* ========== Hero 4 ========== */
 
 .hero4 {

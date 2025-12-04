@@ -448,3 +448,47 @@ document.addEventListener('mousemove', (e) => {
 
 // Final ScrollTrigger refresh
 setTimeout(() => ScrollTrigger.refresh(), 500);
+
+
+// Add this to your existing GSAP script (inside DOMContentLoaded)
+
+
+(function () {
+  const section = document.getElementById("nfcFeatures");
+  const rain = section.querySelector(".nfc-rain-container");
+
+  if (!rain) return;
+
+  const spawnCard = () => {
+    const el = document.createElement("div");
+    el.className = "falling-card";
+
+    el.innerHTML = `<img src="black.jpg" alt="card">`;
+
+    const left = Math.random() * 90 + 2;
+    el.style.left = left + "vw";
+
+    const scale = Math.random() * 0.4 + 0.8;
+    const rotate = Math.random() * 40 - 20;
+    const duration = Math.random() * 8 + 6;
+    const delay = Math.random() * 2;
+
+    el.style.transform = `translateY(-120px) rotate(${rotate}deg) scale(${scale})`;
+    el.style.animation = `nfcFall ${duration}s linear ${delay}s forwards`;
+
+    rain.appendChild(el);
+
+    el.addEventListener("animationend", () => el.remove());
+  };
+
+  // Initial burst
+  for (let i = 0; i < 10; i++) {
+    spawnCard();
+  }
+
+  // Continuous spawning
+  setInterval(() => {
+    spawnCard();
+    if (Math.random() < 0.2) spawnCard();
+  }, 1200);
+})();
