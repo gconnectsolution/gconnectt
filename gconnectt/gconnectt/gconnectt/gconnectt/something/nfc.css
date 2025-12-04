@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+body{
+    box-sizing: border-box;
+}
+
+.hero1{
+    background-color: #000000;
+    /*background: radial-gradient(#383838,#000);*/
+    height: 100vh;
+    background-size: cover;
+    overflow-x: hidden;
+    position: sticky;
+    top: 0;
+    z-index: -1;
+    
+}
+.hero-section{
+    color: #ff9100;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.title{
+    font-family: "TikTok Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100;
+    font-size: 2rem;
+
+}
+
+
+
+.left-head{
+    font-family: "TikTok Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100;
+
+}
+
+.right-head h1,h2{
+    font-family: "TikTok Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100;
+
+}
+
+.center-head{
+    margin-top: 2%;
+    width: 70%;
+    text-align: center;
+    font-family: "TikTok Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 3rem;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "wdth" 100;
+
+}
+
+.card-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    z-index: -1;
+    position: relative;
+}
+
+/* Wrapper controls perspective, stays fixed */
+.card-wrapper {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  perspective: 1500px;        /* crucial */
+  z-index: 0;
+}
+
+/* The card itself */
+.card-img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 2px 4px 13px #000;
+    background-blend-mode:url('/two.jpg') ;
+    mask-size: auto ;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  
+}
+
+
+.hero2{
+
+    background-color: transparent;
+    height: 100vh;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.hero2-details{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+.hero2-details h1{
+    font-family: "TikTok Sans", sans-serif;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 10rem;
+    color: #00b7ff;
+    text-align: center;
+    z-index: 2;
+
+}
+
+
+
+.hero3{
+    background-color: rgb(39, 36, 49);
+    height: 100vh;
+    background-size: cover;   
+    padding: 12% 5%;
+    z-index: -1;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.hero3details{
+    height: 100vh;
+    width: 70%;
+}
+.hero3-card-row {
+    display: flex;
+    align-items: space-evenly;
+    
+}
+
+.small-card{
+    scale: 0.44;
+    z-index: 100;
+    box-shadow: -2px -3px 10px #000;
+    border-radius: 12px;
+}
+
+.hero3details h1{
+  font-family: "TikTok Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-size: 2rem;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100;
+    width: 100%;
+}
+
+.hero3details h1{
+    color: #ffffff;
+}
+
+.hero4{
+    
+    z-index: 9999;
+    background-color: transparent;
+    height: 100vh;
+    background-size: cover;   
+    overflow-x: hidden;
+}
+
+.hero4details{
+
+}
+
+.hero4details h1{
+    font-family: "TikTok Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 10rem;
+  color: #fff;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100;
+    line-height: 1;
+    margin: 0;
+}
+
+.hero5 {
+    height: 100vh;
+    background-image: url('./cardbackground.jpg');
+    background-size: cover;
+    background-position: center;
+            /* REQUIRED for sticky */
+    z-index: -1;           /* NOT negative */
+}
+
+/* This scrolls normally on top of hero5 */
+.hero5details {          /* above .hero5 */
+    padding: 30vh 0;      /* ensures it scrolls into view */
+}
+
+.hero5details h1 {
+    margin: 0;
+    color: #fff;
+    font-family: "Alfa Slab One", serif;
+    font-size: 6rem;
+    font-weight: 500;
+    text-align: center;
+}
