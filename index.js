@@ -453,42 +453,148 @@ setTimeout(() => ScrollTrigger.refresh(), 500);
 // Add this to your existing GSAP script (inside DOMContentLoaded)
 
 
-(function () {
-  const section = document.getElementById("nfcFeatures");
-  const rain = section.querySelector(".nfc-rain-container");
+// holo-final.js — PERFECT CENTERED + NO ROTATION
+// holo-final.js — PERFECT CENTERED + NO ROTATION
+document.addEventListener("DOMContentLoaded", () => {
+  const ribbons = document.querySelectorAll(".holo-ribbon");
+  const radius = 380;
 
-  if (!rain) return;
+  ribbons.forEach((r, i) => {
+    const angle = i * 60;
+    const rad = angle * Math.PI / 180;
 
-  const spawnCard = () => {
-    const el = document.createElement("div");
-    el.className = "falling-card";
+    const x = Math.cos(rad) * radius;
+    const y = Math.sin(rad) * radius * 0.45;
+    const z = Math.sin(rad) * 160;
 
-    el.innerHTML = `<img src="black.jpg" alt="card">`;
+    gsap.to(r, {
+      x,
+      y,
+      z,
+      opacity: 1,
+      scale: 1,
+      duration: 1.6,
+      delay: 0.4 + i * 0.1,
+      ease: "elastic.out(1.4, 0.6)"
+    });
+  });
 
-    const left = Math.random() * 90 + 2;
-    el.style.left = left + "vw";
+  // Only subtle floating — absolutely no rotation
+  gsap.to(".holo-card", {
+    y: -18,
+    duration: 7,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
 
-    const scale = Math.random() * 0.4 + 0.8;
-    const rotate = Math.random() * 40 - 20;
-    const duration = Math.random() * 8 + 6;
-    const delay = Math.random() * 2;
+  gsap.to(".holo-sphere", {
+    y: -12,
+    duration: 9,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+});
 
-    el.style.transform = `translateY(-120px) rotate(${rotate}deg) scale(${scale})`;
-    el.style.animation = `nfcFall ${duration}s linear ${delay}s forwards`;
 
-    rain.appendChild(el);
+//membership cards
 
-    el.addEventListener("animationend", () => el.remove());
-  };
 
-  // Initial burst
-  for (let i = 0; i < 10; i++) {
-    spawnCard();
+// Main timeline for the whole section
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#membershipCards",
+    start: "top 80%",
+    end: "bottom 40%",
+    scrub: false,
+    once: true
   }
+});
 
-  // Continuous spawning
-  setInterval(() => {
-    spawnCard();
-    if (Math.random() < 0.2) spawnCard();
-  }, 1200);
-})();
+// Background fade + slight zoom
+tl.from("#membershipCards", {
+  opacity: 0,
+  scale: 0.95,
+  duration: 0.8,
+  ease: "power2.out"
+});
+
+// Title + subtitle
+tl.from(".mc-title, .mc-sub", {
+  y: 40,
+  opacity: 0,
+  duration: 0.6,
+  stagger: 0.15,
+  ease: "power3.out"
+}, "-=0.4");
+
+// Actions stagger
+tl.from(".mc-action", {
+  x: -50,
+  opacity: 0,
+  duration: 0.6,
+  stagger: 0.12,
+  ease: "back.out(1.7)"
+}, "-=0.3");
+
+// Icon pop animation (micro interaction)
+gsap.from(".mc-icon", {
+  scale: 0,
+  opacity: 0,
+  duration: 0.4,
+  stagger: 0.1,
+  ease: "back.out(2)",
+  scrollTrigger: {
+    trigger: "#membershipCards",
+    start: "top 75%",
+    once: true
+  }
+});
+
+// Right card entrance
+tl.from(".mc-big-card", {
+  x: 120,
+  rotate: 12,
+  opacity: 0,
+  duration: 1,
+  ease: "expo.out"
+}, "-=0.5");
+
+// Card glow pulse
+gsap.to(".mc-card-glow", {
+  scale: 1.2,
+  opacity: 1,
+  repeat: -1,
+  yoyo: true,
+  duration: 2.2,
+  ease: "sine.inOut",
+  scrollTrigger: {
+    trigger: "#membershipCards",
+    start: "top 80%"
+  }
+});
+
+// Subtle floating animation (after entering)
+gsap.to(".mc-card-float", {
+  y: -12,
+  duration: 3,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut"
+});
+
+
+
+//whatsapp
+document.getElementById("whatsapp").addEventListener("click", function () {
+    window.open("https://wa.me/918310312791", "_blank");
+});
+
+document.getElementById("whatsappBtn").addEventListener("click", function () {
+    window.open("https://wa.me/918310312791", "_blank");
+});
+
+document.getElementById("whatsappBtn2").addEventListener("click", function () {
+    window.open("https://wa.me/918310312791", "_blank");
+});

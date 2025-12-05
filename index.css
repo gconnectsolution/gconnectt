@@ -310,182 +310,142 @@ body {
    NFC SECTION — FULL UPDATED CSS
    ============================= */
 
-#nfcFeatures {
+/* holo-final.css — PERFECT CENTERING + 100vh FIT */
+.holo-final {
   position: relative;
-  height: 100vh;                   
-  overflow: hidden;                
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  font-family: "Manrope", sans-serif;
+  color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 40px 20px;
-  box-sizing: border-box;
+  justify-content: center;
   z-index: 3;
 }
 
-/* Main wrapper inside your section */
-#nfcFeatures .tapit-wrapper {
-  position: relative;
-  z-index: 10; /* content stays ABOVE the falling cards */
-  max-width: 1100px;
-  width: 100%;
-}
-
-/* Heading */
-#nfcFeatures .tapit-heading {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #000000;
-  font-weight: 700;
-}
-
-/* Main card container */
-#nfcFeatures .tapit-card-container {
-  width: 340px;
-  height: 220px;
-  margin: 0 auto;
-  position: relative;
-  filter: drop-shadow(0 20px 45px rgba(0,0,0,0.5));
-}
-
-#nfcFeatures .tapit-main-card {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-#nfcFeatures .tapit-red-glow {
-  position: absolute;
-  width: 420px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(255,50,50,0.25), rgba(255,50,50,0.05), transparent);
-  border-radius: 40px;
-  filter: blur(40px);
-  z-index: -1;
-  transform: translateY(12px);
-}
-
-/* Info cards grid */
-#nfcFeatures .tapit-lines-container {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 16px;
-}
-
-#nfcFeatures .tapit-item {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 14px;
-  backdrop-filter: blur(8px);
-  box-shadow: -8px 8px 12px #000;
-  color: #000000;
-}
-
-#nfcFeatures .tapit-item h3 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-#nfcFeatures .tapit-item p {
-  margin-top: 6px;
-  color: rgba(0, 0, 0, 0.75);
-  line-height: 1.3;
-  font-size: 13px;
-}
-
-/* =============================
-   FALLING CARD RAIN
-   ============================= */
-
-#nfcFeatures .nfc-rain-container {
+.holo-bg {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
+  background: radial-gradient(circle at center, #0f0f0f 0%, #000 100%);
 }
 
-/* The floating cards */
-#nfcFeatures .falling-card {
+.holo-bg::before {
+  content: "";
   position: absolute;
-  top: -120px;
-  width: 80px;
-  height: 50px;
-  border-radius: 10px;
-  opacity: 0.9;
-  overflow: hidden;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(4px);
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255,255,255,0.03) 50px, rgba(255,255,255,0.03) 100px);
+  animation: matrixFall 30s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes matrixFall { to { transform: translateY(100px); } }
+
+.holo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 900px;
+  perspective: 2000px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-  animation: nfcFall linear forwards;
 }
 
-#nfcFeatures .falling-card img {
+.holo-title {
+  position: absolute;
+  top: 0%;
+  left: 70%;
+  transform: translateX(-50%);
+  font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+  background: linear-gradient(90deg, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 20;
+  width: 100%;
+  font-weight: 100;
+}
+
+.holo-sphere {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  left: 50%;
+  top: 50%;
+}
+
+.holo-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 215px;
+  margin: -90px 0 0 -170px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 0 90px rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+.holo-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Falling animation */
-@keyframes nfcFall {
-  0% {
-    transform: translateY(-140px) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
+.holo-ribbons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -4%;
+  top: 0;
+  transform-style: preserve-3d;
+  pointer-events: none;
 }
 
-/* Hover polish */
-#nfcFeatures:hover .falling-card {
-  filter: brightness(1.07);
+.holo-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 18px 42px;
+  background: rgba(255,255,255,0.09);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 60px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
 }
 
-/* =============================
-   RESPONSIVE
-   ============================= */
-
-@media (max-width: 840px) {
-  #nfcFeatures .tapit-card-container {
-    width: 280px;
-    height: 180px;
-  }
-
-  #nfcFeatures .tapit-lines-container {
-    grid-template-columns: repeat(2,1fr);
-  }
+.holo-ribbon span{
+    font-size: 0.7rem;
 }
 
-@media (max-width: 520px) {
-  #nfcFeatures {
-    padding-top: 80px;
-  }
-
-  #nfcFeatures .tapit-heading {
-    font-size: 22px;
-  }
-
-  #nfcFeatures .tapit-lines-container {
-    grid-template-columns: 1fr;
+/* Mobile fallback */
+@media (max-width: 860px) {
+  .holo-ribbons { display: none; }
+  .holo-title::after {
+    content: "Always • Money • Time • Impression • Contactless • All Devices";
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    opacity: 0.75;
+    font-weight: 400;
   }
 }
-
-
-
 
 /**/
 
@@ -500,6 +460,7 @@ body {
   position: relative;
   overflow: hidden;
   color: #fff;
+  z-index: 3;
 }
 
 /* LEFT SIDE */
@@ -1149,4 +1110,30 @@ body {
         height: auto;
         max-width: 300px;
     }
+}
+
+
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  border-radius: 20%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* stays above all elements */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.whatsapp:hover {
+  transform: scale(1.08);
 }
