@@ -98,10 +98,54 @@ body {
 }
 
 .get-btn:hover {
-    background: linear-gradient(to right, #c6fffc, #1cffe1);
-    color: #000;
-    border: 2px solid #616161;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.6);
+    border-color: #00ffc8;
 }
+
+/* SHINE SWIPE */
+.get-btn {
+    background: linear-gradient(to right, #000, #7c7c7c);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 24px;
+    border: 2px solid #535353;
+    transition: 0.35s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Glow + Lift */
+.get-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
+    border-color: #ffffff;
+}
+
+/* SHINE SWIPE */
+.get-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: 0.4s ease;
+}
+
+.get-btn:hover::after {
+    left: 120%;
+}
+
 
 .get-btn i {
     font-size: 24px;
@@ -315,7 +359,6 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  height: 100dvh;
   margin: 0;
   padding: 0;
   background: #000;
@@ -386,7 +429,7 @@ body {
 
 .holo-card {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   width: 340px;
   height: 215px;
@@ -416,7 +459,7 @@ body {
 .holo-ribbon {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 60%;
   padding: 18px 42px;
   background: rgba(255,255,255,0.09);
   backdrop-filter: blur(14px);
@@ -435,7 +478,7 @@ body {
 }
 
 /* Mobile fallback */
-@media (max-width: 860px) {
+@media (max-width: 768px) {
   .holo-ribbons { display: none; }
   .holo-title::after {
     content: "Always • Money • Time • Impression • Contactless • All Devices";
@@ -771,13 +814,42 @@ body {
     font-weight: 600;
     border-radius: 24px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
+/* Hover effects (lift + color invert + glow) */
 .cta-btn:hover {
-    background: #000000;
+    background: #000;
     color: #fff;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
+
+/* Shine swipe effect */
+.cta-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.45s ease;
+}
+
+.cta-btn:hover::after {
+    left: 130%;
+}
+
 
 /* ========== GTA Section ========== */
 
@@ -1135,5 +1207,27 @@ body {
 }
 
 .whatsapp:hover {
+  transform: scale(1.08);
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 9999; /* stays above all elements */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logo img {
+  width: 40%;
+  height: 50%;
+}
+
+.logo:hover {
   transform: scale(1.08);
 }

@@ -598,3 +598,8 @@ document.getElementById("whatsappBtn").addEventListener("click", function () {
 document.getElementById("whatsappBtn2").addEventListener("click", function () {
     window.open("https://wa.me/918310312791", "_blank");
 });
+
+//Home
+document.getElementById('logo').addEventListener('click' , () => {
+    window.location.href = 'index.html'
+})
