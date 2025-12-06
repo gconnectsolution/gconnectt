@@ -603,3 +603,5 @@ document.getElementById("whatsappBtn2").addEventListener("click", function () {
 document.getElementById('logo').addEventListener('click' , () => {
     window.location.href = 'index.html'
 })
+
+

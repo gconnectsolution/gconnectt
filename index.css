@@ -11,7 +11,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     font-family: "Manrope", sans-serif;
-    font-optical-sizing: auto;
+    font-optier-product-imgcal-sizing: auto;
     font-style: normal;
     font-variation-settings: "slnt" 0, "wdth" 100;
 }
@@ -490,7 +490,106 @@ body {
   }
 }
 
-/**/
+/*card types*/
+/* --- 2. Premium Product Showcase CSS --- */
+.card-tiers-section {
+    padding: 80px 5%;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+.tiers-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    color: #1a1a1a;
+}
+
+.tier-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.tier-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 5px 30px;
+    max-width: 350px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    height: auto;
+}
+
+.tier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tier-icon i {
+    font-size: 32px;
+    color: var(--primary-color, #007bff);
+    margin-bottom: 15px;
+    background: #e6f0ff;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.tier-icon img{
+    height: 500px;
+    width: 250px;
+}
+
+.tier-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #1a1a1a;
+}
+
+.tier-card p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tier-features li {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.tier-features li i {
+    color: #28a745;
+    font-size: 14px;
+    margin-right: 8px;
+    padding: 0; /* Override the padding from .tier-icon */
+    background: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 992px) {
+    .tier-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tier-card {
+        max-width: 90%;
+    }
+}
 
 /* ===========================
    SMART MEMBERSHIP SPLIT LAYOUT
@@ -641,7 +740,117 @@ body {
   }
 }
 
+/* --- 3. B2B Google Review Standee CSS --- */
+.b2b-tool-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 5%;
+    background-color: #f0f8ff; /* Light blue background for emphasis */
+    gap: 50px;
+    position: relative;
+    z-index: 3;
+}
 
+.tool-left-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+.sub-head-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-color, #007bff);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tool-main-title {
+    font-size: 40px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.tool-description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.tool-benefits-list {
+    margin-bottom: 40px;
+}
+
+.tool-benefit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.tool-benefit i {
+    font-size: 20px;
+    color: #ffc107; /* Gold color for review stars */
+    margin-right: 15px;
+}
+
+.tool-right-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.tool-right-visual img {
+    max-width: 50%;
+    max-height: 10%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the New Product Images in Card Tiers */
+.tier-icon {
+    /* Keep this for padding/centering if needed, but remove any background color from here */
+    width: 100%;
+    height: 50%; /* Adjust height based on your design */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.tier-product-img {
+    /* Sty0les for the actual image */
+    width: 100%;
+    height: 100%;
+    max-height: 100%; /* Ensure image fits well */
+    border-radius: 8px; /* Optional: adds soft corners to the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 992px) {
+    .b2b-tool-split {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 5%;
+    }
+    .tool-left-content {
+        max-width: 100%;
+    }
+    .tool-main-title {
+        font-size: 30px;
+    }
+    .tool-benefit {
+        justify-content: center;
+    }
+    .tool-benefit i {
+        margin-left: 0;
+    }
+}
 
 /* ========== Hero 4 ========== */
 
@@ -944,6 +1153,102 @@ body {
     width: 350px;
     height: 500px;
     border-radius: 24px;
+}
+
+/* --- 4. Comprehensive FAQ Section CSS --- */
+.faq-container {
+    padding: 80px 5%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.faq-main-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.faq-sub-title {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.faq-accordion {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.faq-toggle {
+    display: none; /* Hide the standard checkbox */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #f9f9f9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+    background-color: #f0f0f0;
+}
+
+.faq-arrow {
+    font-size: 16px;
+    transition: transform 0.3s;
+    color: var(--primary-color, #007bff);
+}
+
+.faq-answer {
+    max-height: 0;
+    padding: 0 25px;
+    background-color: #ffffff;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    overflow: hidden;
+}
+
+.faq-answer p {
+    padding: 15px 0;
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+    border-top: 1px solid #eee;
+}
+
+/* State when checkbox is checked */
+.faq-toggle:checked + .faq-question {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-toggle:checked + .faq-question .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-toggle:checked ~ .faq-answer {
+    max-height: 200px; /* Adjust height based on content */
+    padding: 0 25px 20px;
 }
 
 /* ========== Footer / Details Sections ========== */

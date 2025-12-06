@@ -9,7 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/linus@0.0.6/index.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJzLwM3yFz54ga3faW8/80W8U0tW+6r7A9p/sA0X3jFhLwW+8Gk7T4b3e8C4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+  
   </head>
 
 <body>
@@ -124,6 +128,64 @@
             </div>
         </div>
     </section>
+
+<section id="cardTiers" class="card-tiers-section">
+    <!--<h2 class="tiers-title">Choose Your Perfect Networking Tool</h2>-->
+    <div class="tier-grid">
+        
+        <!--<div class="tier-card metal">
+            <div class="tier-icon">
+                <img src="card_metal_mockup.png" alt="Premium Metal NFC Business Card" class="tier-product-img">
+            </div>
+            <h3>Metal & Wooden Cards</h3>
+            <p>The ultimate luxury impression. Durable, sophisticated, and memorable. Perfect for high-level executives.</p>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> Engraved Custom Design</li>
+                <li><i class="fa-solid fa-check"></i> Scratch-Resistant Finish</li>
+                <li><i class="fa-solid fa-check"></i> Maximum First Impression</li>
+            </ul>
+        </div>-->
+        
+        <div class="tier-card pvc">
+            <div class="tier-icon">
+                <img src="visitingcard4.png" alt="PVC Digital Business Card" class="tier-product-img">
+            </div>
+            <h3>Digital visiting cards</h3>
+            <p>Share your identity instantly with a smart, tap-enabled digital card.</p>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> Waterproof & Flexible</li>
+                <li><i class="fa-solid fa-check"></i> Standard Card Dimensions</li>
+                <li><i class="fa-solid fa-check"></i> Ideal for Bulk Orders</li>
+            </ul>
+        </div>
+
+        <div class="tier-card pvc">
+            <div class="tier-icon">
+                <img src="schoncard.png" alt="PVC Digital Business Card" class="tier-product-img">
+            </div>
+            <h3>Premium NFC membership Cards</h3>
+            <p>Durable, cost-effective, and fully customizable with vibrant color printing. Our best seller for teams.</p>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> Waterproof & Flexible</li>
+                <li><i class="fa-solid fa-check"></i> Standard Card Dimensions</li>
+                <li><i class="fa-solid fa-check"></i> Ideal for Bulk Orders</li>
+            </ul>
+        </div>
+        
+        <div class="tier-card compatibility">
+            <div class="tier-icon">
+                <img src="qr.png" alt="Universal Compatibility with QR Code" class="tier-product-img">
+            </div>
+            <h3>Universal Compatibility</h3>
+            <p>Don't worry about old phones. Every card includes a dynamic QR code for instant sharing on any device.</p>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> NFC Chip (New Phones)</li>
+                <li><i class="fa-solid fa-check"></i> Dynamic QR Code (Old Phones)</li>
+                <li><i class="fa-solid fa-check"></i> No App Required to Receive</li>
+            </ul>
+        </div>
+    </div>
+</section>
     <section id="membershipCards" class="mc-split">
 
   <div class="mc-left">
@@ -176,6 +238,39 @@
 
 </section>
 
+
+
+<section id="googleReviewTool" class="b2b-tool-split">
+    <div class="tool-left-content">
+        <span class="sub-head-tag">BUSINESS GROWTH TOOLKIT</span>
+        <h2 class="tool-main-title">Instantly Capture 5-Star Google Reviews.</h2>
+        <p class="tool-description">
+            Your reputation is everything. Our NFC Review card turns satisfied customers into promoters, instantly directing them to your Google page with a single tap.
+        </p>
+
+        <div class="tool-benefits-list">
+            <div class="tool-benefit">
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <p>Boost your average rating and local SEO presence.</p>
+            </div>
+            <div class="tool-benefit">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <p>No app, no typing, no searching—just one quick tap.</p>
+            </div>
+            <div class="tool-benefit">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>Direct integration with your existing digital profile.</p>
+            </div>
+        </div>
+
+        <button id="standeeCta" class="get-btn">Get Your Custom Review Standee</button>
+
+    </div>
+    <div class="tool-right-visual">
+        <img src="review.png" alt="NFC Google Review Standee">
+    </div>
+</section>
+
     <section id="gtaSection" class="gta-section">
         
         <video id="gtaVideo" preload="auto" muted playsinline>
@@ -222,6 +317,57 @@
             <li>Compatible with all modern smartphones and operating systems.</li>
         </ul>
     </section>
+    <section id="faqSection" class="faq-container">
+    <h2 class="faq-main-title">Got Questions? We Have Answers.</h2>
+    <p class="faq-sub-title">We've compiled the most common questions to ensure your transition to smart networking is seamless.</p>
+
+    <div class="faq-accordion">
+        
+        <div class="faq-item">
+            <input type="checkbox" id="faq1" class="faq-toggle">
+            <label for="faq1" class="faq-question">
+                Do I need an app for the NFC cards to work?
+                <i class="fa-solid fa-chevron-down faq-arrow"></i>
+            </label>
+            <div class="faq-answer">
+                <p>Absolutely not! The receiver of the card (your client) needs **no app** to download your profile. The information opens instantly in their web browser. You only need the app/web portal to update your own profile details.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq2" class="faq-toggle">
+            <label for="faq2" class="faq-question">
+                Will my NFC card stop working after a few taps? How long does it last?
+                <i class="fa-solid fa-chevron-down faq-arrow"></i>
+            </label>
+            <div class="faq-answer">
+                <p>Our cards are designed for durability and longevity. They come with a **Lifetime Validity Guarantee** and are rated for over 100,000 taps. You will never need to re-print your card unless you lose it!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq3" class="faq-toggle">
+            <label for="faq3" class="faq-question">
+                What if the other person's phone doesn't have NFC?
+                <i class="fa-solid fa-chevron-down faq-arrow"></i>
+            </label>
+            <div class="faq-answer">
+                <p>Every single card we produce comes equipped with a **dynamic QR code** clearly printed on the back. If NFC isn't available, they can simply use their camera to scan the QR code, and your profile opens instantly.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq4" class="faq-toggle">
+            <label for="faq4" class="faq-question">
+                Are there any hidden subscription costs or annual fees?
+                <i class="fa-solid fa-chevron-down faq-arrow"></i>
+            </label>
+            <div class="faq-answer">
+                <p>No. Your one-time card purchase covers the NFC card and **lifetime access** to your digital profile management. We guarantee **no hidden fees or annual subscriptions** for the standard digital card features.</p>
+            </div>
+        </div>
+    </div>
+</section>
     <section id="five" class="hero5">
         
     </section>
