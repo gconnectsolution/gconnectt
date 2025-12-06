@@ -237,36 +237,54 @@ if (typeof SplitType !== "undefined") {
 }
 
 // 1. Set the initial state (Subtle x movement for better UX)
+// 1. Initial Setup
 gsap.set(".list li", { opacity: 0, x: -100 });
 
-// 2. Create the ScrollTrigger Timeline for the entire Hero 4 section
-const hero4ListTl = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#four",
-        start: "top top", 
-        end: "+=2000", 
-        scrub: true,
-        pin: true , 
+// 2. Use GSAP's matchMedia to manage screen-size-specific logic
+// This ensures only ONE animation runs at a time based on the screen width.
+mm.add({
+    // Define the conditions
+    desktop: "(min-width: 769px)", 
+    mobile: "(max-width: 768px)" 
+}, (context) => {
+    let { desktop, mobile } = context.conditions;
+
+    // 3. Create a clean timeline ONLY inside the matched media block
+    const hero4ListTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#four",
+            start: "top top", 
+            end: "+=2000", 
+            scrub: true,
+            pin: true, 
+        }
+    });
+
+    // --- DESKTOP ANIMATION LOGIC (min-width: 769px) ---
+    if (desktop) {
+        // x: 100 for desktop
+        hero4ListTl.to(".list li:nth-child(1)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, 0.2)
+                   .to(".list li:nth-child(2)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4")
+                   .to(".list li:nth-child(3)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4")
+                   .to(".list li:nth-child(4)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4")
+                   .to(".list li:nth-child(5)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4");
     }
+
+    // --- MOBILE ANIMATION LOGIC (max-width: 768px) ---
+    if (mobile) {
+        // x: 0 for mobile
+        hero4ListTl.to(".list li:nth-child(1)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.2)
+                   .to(".list li:nth-child(2)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4")
+                   .to(".list li:nth-child(3)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4")
+                   .to(".list li:nth-child(4)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4")
+                   .to(".list li:nth-child(5)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4");
+    }
+
+    // 4. IMPORTANT: Revert all changes when the media query no longer matches
+    return () => { 
+        hero4ListTl.revert();
+    };
 });
-
-// 3. Sequentially reveal each list item using fractional positioning for reliability
-// Use the '<' operator to position relative to the end of the previous animation for reliable staging.
-hero4ListTl.to(".list li:nth-child(1)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, 0.2) // Start slightly after pin
-            .to(".list li:nth-child(2)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4") // 0.4s after item 1 starts
-            .to(".list li:nth-child(3)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4")
-            .to(".list li:nth-child(4)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4")
-            .to(".list li:nth-child(5)", { opacity: 1, x: 100, duration: 0.5, ease: "power3.out" }, "<0.4");
-
-
-
-mm.add('max-width:768px',() => {
-    hero4ListTl.to(".list li:nth-child(1)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.2) // Start slightly after pin
-            .to(".list li:nth-child(2)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4") // 0.4s after item 1 starts
-            .to(".list li:nth-child(3)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4")
-            .to(".list li:nth-child(4)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4")
-            .to(".list li:nth-child(5)", { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, "<0.4");
-})
 /* ------------------------
     5. HERO 1 Motion
     ------------------------ */
@@ -456,45 +474,58 @@ setTimeout(() => ScrollTrigger.refresh(), 500);
 // holo-final.js — PERFECT CENTERED + NO ROTATION
 // holo-final.js — PERFECT CENTERED + NO ROTATION
 document.addEventListener("DOMContentLoaded", () => {
-  const ribbons = document.querySelectorAll(".holo-ribbon");
-  const radius = 380;
+    
+    // --- GSAP Animation (Runs ONLY on screens >= 769px) ---
+    gsap.matchMedia().add("(min-width: 769px)", () => {
+        
+        const ribbons = document.querySelectorAll(".holo-ribbon");
+        const radius = 380;
 
-  ribbons.forEach((r, i) => {
-    const angle = i * 60;
-    const rad = angle * Math.PI / 180;
+        ribbons.forEach((r, i) => {
+            const angle = i * 60;
+            const rad = angle * Math.PI / 180;
 
-    const x = Math.cos(rad) * radius;
-    const y = Math.sin(rad) * radius * 0.45;
-    const z = Math.sin(rad) * 160;
+            const x = Math.cos(rad) * radius;
+            const y = Math.sin(rad) * radius * 0.45;
+            const z = Math.sin(rad) * 160;
 
-    gsap.to(r, {
-      x,
-      y,
-      z,
-      opacity: 1,
-      scale: 1,
-      duration: 1.6,
-      delay: 0.4 + i * 0.1,
-      ease: "elastic.out(1.4, 0.6)"
-    });
-  });
+            // Animate ribbons into their 3D positions
+            gsap.to(r, {
+                x,
+                y,
+                z,
+                opacity: 1,
+                scale: 1,
+                duration: 1.6,
+                delay: 0.4 + i * 0.1,
+                ease: "elastic.out(1.4, 0.6)"
+            });
+        });
 
-  // Only subtle floating — absolutely no rotation
-  gsap.to(".holo-card", {
-    y: -18,
-    duration: 7,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-  });
+        // Floating animation for card and sphere (Desktop Only)
+        gsap.to(".holo-card", {
+            y: -18,
+            duration: 7,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
 
-  gsap.to(".holo-sphere", {
-    y: -12,
-    duration: 9,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-  });
+        gsap.to(".holo-sphere", {
+            y: -12,
+            duration: 9,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // IMPORTANT: Clean up GSAP instances when reverting to mobile view
+        return () => { 
+             gsap.killTweensOf([".holo-ribbon", ".holo-card", ".holo-sphere"]);
+        };
+
+    }); // End matchMedia block
+    // No GSAP runs on mobile; the CSS takes over to display the list.
 });
 
 

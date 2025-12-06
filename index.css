@@ -478,16 +478,87 @@ body {
 }
 
 /* Mobile fallback */
+/* Mobile Optimization: Flatten the 3D Ribbons into a Vertical List */
 @media (max-width: 768px) {
-  .holo-ribbons { display: none; }
-  .holo-title::after {
-    content: "Always • Money • Time • Impression • Contactless • All Devices";
-    display: block;
-    font-size: 1.1rem;
-    margin-top: 20px;
-    opacity: 0.75;
-    font-weight: 400;
-  }
+    
+    /* 1. Reset the wrapper/scene to flow normally */
+    .holo-wrapper {
+        display: block;
+        padding-top: 50px;
+        height: auto;
+        height: auto;
+    }
+
+    /* 2. Style the title */
+    .holo-title {
+        position: absolute; 
+        text-align: center;
+        font-size: 2rem; 
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 0 10px;
+        left: 50%;
+        top: -30%;
+    }
+    .holo-title::after {
+        content: none; /* Remove the old text fallback */
+    }
+
+    /* 3. Center the Card */
+    .holo-sphere {
+        position: relative;
+        left: 50%;
+        top: auto;
+        transform: translateX(-50%) scale(0.8); /* Scale down and center */
+        margin-bottom: 40px;
+        width: 380px;
+        height: 380px;
+    }
+    .holo-card {
+        top: 0%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 4. FLATTEN THE RIBBONS into a readable list */
+    .holo-ribbons {
+        position: absolute; /* Flow naturally after the sphere */
+        top:25%;
+        left: 0%;
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        transform: none !important; /* CRITICAL: Remove any 3D scale/transform */
+        display: block;
+        padding: 24px 14px;
+        box-sizing: border-box;
+    }
+
+    .holo-ribbon {
+        /* CRITICAL: Reset 3D transforms */
+        position: static;
+        transform: none !important; 
+        
+        /* List Styling */
+        opacity: 1 !important; /* Ensure visibility */
+        text-align: left;
+        padding: 15px 20px;
+        margin-bottom: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        white-space: normal;
+        font-size: 1rem;
+        font-weight: 500;
+        left: auto;
+        top: auto;
+    }
+    .holo-ribbon span {
+        display: block;
+        margin-top: 5px;
+        font-weight: 300;
+        font-size: 0.8rem;
+    }
 }
 
 /*card types*/
@@ -589,6 +660,9 @@ body {
     .tier-card {
         max-width: 90%;
     }
+    .tier-icon img{
+        height: auto;
+    }
 }
 
 /* ===========================
@@ -687,7 +761,7 @@ body {
 }
 
 /* Big floating card */
-.mc-card-float {
+.mc-card-float{
   position: relative;
   width: 420px;
   height: 260px;
@@ -698,7 +772,7 @@ body {
 .mc-big-card {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.12);
 }
@@ -887,14 +961,23 @@ body {
 .hero4main {
     overflow: hidden;
     display: inline-block;
-}
-
-.hero4details h1 {
     font-weight: 800;
     font-size: 7rem;
     color: #ffffff;
     line-height: 1;
     margin: 0;
+}
+
+
+
+.hero4details h1 {
+    
+}
+
+@media (max-width:768px) {
+    .hero4main{
+        font-size: 2.5rem !important;
+    }
 }
 
 .list {
@@ -994,6 +1077,13 @@ body {
     width: 100%;
     text-shadow: none;
     color: #fff;
+}
+
+@media (max-width:768px) {
+    .brand-container h2{
+        font-size: 2rem;
+    }
+    
 }
 
 .subtext {
@@ -1332,9 +1422,10 @@ body {
     }
 
     .center-head {
-        font-size: 1.8rem;
-        width: 90%;
+        font-size: 1.3rem;
+        width: auto;
         margin-top: 15%;
+        padding: 0 24px;
     }
 
     .card-details {
@@ -1343,14 +1434,14 @@ body {
     }
 
     .get-btn {
-        margin-top: 15vh;
+        margin-top: -100%;
     }
 
     /* Hero 2 */
     .tap {
         top: 50%;
         height: 50%;
-        width: 150%;
+        max-width: 200%;
     }
 
     .hero2-details h1 {
@@ -1458,10 +1549,15 @@ body {
 
     /* Footer / Details */
     .details-l {
-        height: 20vh;
+        height: 20%;
         position: static;
         padding: 1.5rem;
         justify-content: center;
+        
+    }
+
+    .details-left h2{
+        font-size: 0.5rem;
     }
 
     .details-img,
@@ -1472,7 +1568,9 @@ body {
         padding: 1.5rem;
         text-align: center;
         justify-content: center;
+        
     }
+
 
     .details-left h2 {
         font-size: 1.5rem;
@@ -1480,6 +1578,10 @@ body {
 
     .details-right h2 {
         font-size: 1rem;
+    }
+
+    .details-img{
+        top: 0% !important;
     }
 
     .details-img img {
